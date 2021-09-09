@@ -42,26 +42,34 @@ $richMenuBuilder = new \LINE\LINEBot\RichMenuBuilder($data['size'], $data['selec
     }
 
 //讀取資訊 
-// $HttpRequestBody = file_get_contents('php://input');
-// $client = new LINEBotTiny($channelAccessToken, $channelSecret);
-// $dataEven = $client->parseEvents();
-// foreach ($client->parseEvents() as $event) {
-// 	switch ($event['type']) {
-// 		case 'message': //訊息觸發
-// 		$message = $event['message'];
-// 		if (strtolower($message['text']) == "test" || $message['text'] == "低能兒") {
-// 			$client->replyMessage(array(
-// 				'replyToken' => $event['replyToken'],
-// 				'messages' => array(
-// 					array(
-// 						'type' => 'text', //訊息類型 (文字)
-// 						'text' => '柳+云' //回覆訊息
-// 					)
-// 				)
-// 			));
-// 		}
-// 	}
-// }
+$client = new LINEBotTiny($channelAccessToken, $channelSecret);
+$dataEven = $client->parseEvents();
+foreach ($client->parseEvents() as $event) {
+	switch ($event['type']) {
+		case 'message': //訊息觸發
+		$message = $event['message'];
+		if (strtolower($message['text']) == "test") {
+			$client->replyMessage(array(
+				'replyToken' => $event['replyToken'],
+				'messages' => array(
+					array(
+						'type' => 'text', //訊息類型 (文字)
+						'text' => '金罵勒test' //回覆訊息
+					)
+				)
+			));
+		} else {
+			$client->replyMessage(array(
+				'replyToken' => $event['replyToken'],
+				'messages' => array(
+					array(
+						'type' => 'text', //訊息類型 (文字)
+						'text' => '母湯歐北怕' //回覆訊息
+					)
+				)
+		}
+	}
+}
 
 //輸出
 // error_log("error_test"); 
