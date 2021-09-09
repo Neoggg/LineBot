@@ -9,6 +9,7 @@
 
 require_once('LINEBotTiny.php');
 require_once('forLine/LineJson.php');
+require_once('vendor/autoload.php');
 
 $HttpRequestBody = file_get_contents('php://input');
 file_put_contents('php://stderr', $HttpRequestBody);
