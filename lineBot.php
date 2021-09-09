@@ -23,6 +23,7 @@ $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 $LineJson = new LineJson();
 $data = $LineJson->menu();
 $richMenuBuilder = new \LINE\LINEBot\RichMenuBuilder($data['size'], $data['selected'], $data['name'], $data['chatBarText'], $data['areas']);
+file_put_contents('php://stderr', json_encode($richMenuBuilder));
 $response = $bot->createRichMenu($richMenuBuilder);
 file_put_contents('php://stderr', json_encode($response));
 $status = $response->getHTTPStatus();
