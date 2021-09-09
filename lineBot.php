@@ -24,6 +24,7 @@ $LineJson = new LineJson();
 $data = $LineJson->menu();
 $richMenuBuilder = new \LINE\LINEBot\RichMenuBuilder($data['size'], $data['selected'], $data['name'], $data['chatBarText'], $data['areas']);
 $response = $bot->createRichMenu($richMenuBuilder);
+file_put_contents('php://stderr', $response);
 $status = $response->getHTTPStatus();
 if ($status == 200) {
 	$content = $response->getJSONDecodedBody();
@@ -39,7 +40,7 @@ if ($status == 200) {
 		'Content-Type: application/json',
 		'Authorization: Bearer ' . $channelAccessToken
 	]);
-	curl_close($ch);
+	// curl_close($ch);
 } else {
 	error_log('fail'); 
 }

@@ -4,10 +4,10 @@ class LineJson
 {
   public function menu()
   {
-    $size = new \LINE\LINEBot\RichMenuBuilder\RichMenuSizeBuilder(1686,2500);
+    $size = new \LINE\LINEBot\RichMenuBuilder\RichMenuSizeBuilder(843,2500);
     $reslut = [
       "size" => $size,
-      "selected" => false,
+      "selected" => true,
       "name" => "Nice richmenu",
       "chatBarText" => "neogg A meun 拉",
     ];
