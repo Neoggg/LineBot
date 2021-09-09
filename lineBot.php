@@ -67,6 +67,7 @@ foreach ($client->parseEvents() as $event) {
 						'text' => '母湯歐北怕' //回覆訊息
 					)
 				)
+			));
 		}
 	}
 }
