@@ -36,5 +36,5 @@ foreach ($client->parseEvents() as $event) {
 }
 // error_log("error_test");
 //輸出 
-file_put_contents('php://stderr', $dataEven);
+file_put_contents('php://stderr', json_encode($dataEven));
 file_put_contents('php://stderr', $HttpRequestBody);
