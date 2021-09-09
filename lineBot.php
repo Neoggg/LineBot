@@ -16,6 +16,7 @@ $channelAccessToken = 'b31d8B9iAriRU9gT2b2LHKapaDFZzWga3SmlmHCMRWUsl5OplYXV/78fK
 //讀取資訊 
 $HttpRequestBody = file_get_contents('php://input');
 $client = new LINEBotTiny($channelAccessToken, $channelSecret);
+$dataEven = $client->parseEvents();
 foreach ($client->parseEvents() as $event) {
 	switch ($event['type']) {
 		case 'message': //訊息觸發
@@ -33,6 +34,7 @@ foreach ($client->parseEvents() as $event) {
 		}
 	}
 }
-error_log("error_test");
+// error_log("error_test");
 //輸出 
+file_put_contents('php://stderr', $dataEven);
 file_put_contents('php://stderr', $HttpRequestBody);
