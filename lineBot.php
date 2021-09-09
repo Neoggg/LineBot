@@ -17,20 +17,15 @@ $ChannelAccessToken = 'b31d8B9iAriRU9gT2b2LHKapaDFZzWga3SmlmHCMRWUsl5OplYXV/78fK
 $HttpRequestBody = file_get_contents('php://input'); 
 $client = new LINEBotTiny($channelAccessToken, $channelSecret);
 foreach ($client->parseEvents() as $event) {
-  switch ($event['type']) {
-      case 'message': //訊息觸發
-          $message = $event['message'];
-          if (strtolower($message['text']) == "text" || $message['text'] == "文字") {
-            $client->replyMessage(array(
-                'replyToken' => $event['replyToken'],
-                'messages' => array(
-                    array(
-                        'type' => 'text', //訊息類型 (文字)
-                        'text' => 'Hello, world!' //回覆訊息
-                    )
-                )
-            ));
-          }
+    $client->replyMessage(array(
+        'replyToken' => $event['replyToken'],
+        'messages' => array(
+            array(
+                'type' => 'text', //訊息類型 (文字)
+                'text' => 'Hello, world!' //回覆訊息
+            )
+        )
+    ));
 }
 
 //輸出 
