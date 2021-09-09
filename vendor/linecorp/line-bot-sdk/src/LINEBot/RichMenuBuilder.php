@@ -70,6 +70,7 @@ class RichMenuBuilder
         foreach ($this->areaBuilders as $areaBuilder) {
             $areas[] = $areaBuilder->build();
         }
+
         return [
             'size' => $this->sizeBuilder->build(),
             'selected' => $this->selected,
