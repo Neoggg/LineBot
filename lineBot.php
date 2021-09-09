@@ -12,7 +12,7 @@ require_once('forLine/LineJson.php');
 require_once('vendor/autoload.php');
 
 $HttpRequestBody = file_get_contents('php://input');
-// file_put_contents('php://stderr', $HttpRequestBody);
+file_put_contents('php://stderr', $HttpRequestBody);
 
 //設定Token 
 $channelSecret =  '64f2e4b2431a448b2c872f5c58a201a9';
@@ -24,7 +24,6 @@ $LineJson = new LineJson();
 $data = $LineJson->menu();
 $richMenuBuilder = new \LINE\LINEBot\RichMenuBuilder($data['size'], $data['selected'], $data['name'], $data['chatBarText'], $data['areas']);
 $response = $bot->createRichMenu($richMenuBuilder);
-file_put_contents('php://stderr', $HttpRequestBody);
 $status = $response->getHTTPStatus();
 if ($status == 200) {
 	$content = $response->getJSONDecodedBody();
@@ -79,4 +78,4 @@ foreach ($client->parseEvents() as $event) {
 //輸出
 // error_log(); 
 // file_put_contents('php://stderr', json_encode($dataEven));
-file_put_contents('php://stderr', $HttpRequestBody);
+// file_put_contents('php://stderr', $HttpRequestBody);
