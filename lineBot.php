@@ -5,7 +5,7 @@
  * https://neogg.herokuapp.com/lineBot.php
  */
 
-date_default_timezone_set("Asia/Taipei"); //設定時區為台北時區
+// date_default_timezone_set("Asia/Taipei"); //設定時區為台北時區
 
 require_once('LINEBotTiny.php');
 require_once('forLine/LineJson.php');
@@ -39,7 +39,7 @@ $richMenuBuilder = new \LINE\LINEBot\RichMenuBuilder($data['size'], $data['selec
     }
 
 //讀取資訊 
-// $HttpRequestBody = file_get_contents('php://input');
+$HttpRequestBody = file_get_contents('php://input');
 // $client = new LINEBotTiny($channelAccessToken, $channelSecret);
 // $dataEven = $client->parseEvents();
 // foreach ($client->parseEvents() as $event) {
@@ -63,4 +63,4 @@ $richMenuBuilder = new \LINE\LINEBot\RichMenuBuilder($data['size'], $data['selec
 //輸出
 // error_log("error_test"); 
 // file_put_contents('php://stderr', json_encode($dataEven));
-file_put_contents('php://stderr', $httpClient);
+file_put_contents('php://stderr', $HttpRequestBody);
