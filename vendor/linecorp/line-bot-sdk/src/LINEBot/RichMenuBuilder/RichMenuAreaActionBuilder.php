@@ -32,13 +32,13 @@ class RichMenuAreaActionBuilder implements TemplateActionBuilder
     /** @var string */
     private $data;
     /** @var string */
-    // private $text;
+    private $label;
 
-    public function __construct($type, $data)
+    public function __construct($type, $label, $data)
     {
         $this->type = $type;
+        $this->label = $label;
         $this->data = $data;
-        // $this->text = $text;
     }
 
     /**
@@ -50,8 +50,8 @@ class RichMenuAreaActionBuilder implements TemplateActionBuilder
     {
         return [
             'type' => $this->type,
+            'label' => $this->label,
             'data' => $this->data,
-            // 'text' => $this->text,
         ];
     }
 }
