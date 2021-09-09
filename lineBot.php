@@ -24,7 +24,7 @@ $LineJson = new LineJson();
 $data = $LineJson->menu();
 $richMenuBuilder = new \LINE\LINEBot\RichMenuBuilder($data['size'], $data['selected'], $data['name'], $data['chatBarText'], $data['areas']);
 $response = $bot->createRichMenu($richMenuBuilder);
-error_log($response);
+file_put_contents('php://stderr', json_encode($response));
 $status = $response->getHTTPStatus();
 if ($status == 200) {
 	$content = $response->getJSONDecodedBody();
