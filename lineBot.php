@@ -5,8 +5,8 @@ require_once('forLine/LineJson.php');
 
 use LINE\LINEBot\HTTPClient\CurlHTTPClient;
 
-// $HttpRequestBody = file_get_contents('php://input');
-// file_put_contents('php://stderr', $HttpRequestBody);
+$HttpRequestBody = file_get_contents('php://input');
+file_put_contents('php://stderr', $HttpRequestBody);
 
 //設定Token 
 $channelSecret =  '64f2e4b2431a448b2c872f5c58a201a9';
@@ -63,7 +63,6 @@ foreach ($client->parseEvents() as $event) {
 			} elseif (strtolower($message['text']) == 'meun') {
 				$client->replyMessage(array(
 					'replyToken' => $event['replyToken'],
-					'messages' => array(
 						"type" => "text",
 						"text" => "Select your favorite food category or send me your location!",
 						'quickReply' => array(
@@ -86,7 +85,6 @@ foreach ($client->parseEvents() as $event) {
 								),
 							)
 						),
-					)
 				));
 			} else {
 				$client->replyMessage(array(
