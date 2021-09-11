@@ -21,9 +21,9 @@ $channelAccessToken = 'b31d8B9iAriRU9gT2b2LHKapaDFZzWga3SmlmHCMRWUsl5OplYXV/78fK
 $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($channelAccessToken);
 file_put_contents('php://stderr', json_encode($httpClient));
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
-// $LineJson = new LineJson();
-// $data = $LineJson->menu();
-// file_put_contents('php://stderr', json_encode($data));
+$LineJson = new LineJson();
+$data = $LineJson->menu();
+file_put_contents('php://stderr', json_encode($data));
 // $richMenuBuilder = new \LINE\LINEBot\RichMenuBuilder($data['size'], $data['selected'], $data['name'], $data['chatBarText'], $data['areas']);
 // file_put_contents('php://stderr', json_encode($richMenuBuilder));
 // $response = $bot->createRichMenu($richMenuBuilder);
