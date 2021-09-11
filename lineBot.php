@@ -63,7 +63,7 @@ foreach ($client->parseEvents() as $event) {
 					// 		'type' => 'text', //訊息類型 (文字)
 					// 		'text' => '金罵勒test' //回覆訊息
 					// 	),
-						array(
+						// array(
 							"type" => "text", // ①
 							"text" => "Select your favorite food category or send me your location!",
 							'quickReply' => array(
@@ -78,8 +78,8 @@ foreach ($client->parseEvents() as $event) {
 									),
 								)
 								),
-						)
-					)
+						// )
+					// )
 				));
 			} else {
 				$client->replyMessage(array(
