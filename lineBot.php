@@ -58,14 +58,14 @@ foreach ($client->parseEvents() as $event) {
 			if (strtolower($message['text']) == "test") {
 				$client->replyMessage(array(
 					'replyToken' => $event['replyToken'],
-					// 'messages' => array(
-					// 	array(
-					// 		'type' => 'text', //訊息類型 (文字)
-					// 		'text' => '金罵勒test' //回覆訊息
-					// 	),
+					'messages' => array(
+						array(
+							'type' => 'text', //訊息類型 (文字)
+							'text' => '金罵勒test' //回覆訊息
+						),
 						// array(
-							"type" => "text", // ①
-							"text" => "Select your favorite food category or send me your location!",
+							// "type" => "text", // ①
+							// "text" => "Select your favorite food category or send me your location!",
 							'quickReply' => array(
 								"items" => array(
 									array(
