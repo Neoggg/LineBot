@@ -5,8 +5,8 @@ require_once('vendor/autoload.php');
 
 use LINE\LINEBot\HTTPClient\CurlHTTPClient;
 
-$HttpRequestBody = file_get_contents('php://input');
-file_put_contents('php://stderr', $HttpRequestBody);
+// $HttpRequestBody = file_get_contents('php://input');
+// file_put_contents('php://stderr', $HttpRequestBody);
 
 //設定Token 
 $channelSecret =  '64f2e4b2431a448b2c872f5c58a201a9';
