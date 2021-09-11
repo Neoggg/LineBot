@@ -1,16 +1,9 @@
 <?php
-
-use \LINE\LINEBot\HTTPClient\CurlHTTPClient;
-/**
- * LineBot test
- * https://neogg.herokuapp.com/lineBot.php
- */
-
-// date_default_timezone_set("Asia/Taipei"); //設定時區為台北時區
-
 // require_once('LINEBotTiny.php');
 require_once('forLine/LineJson.php');
-// require_once('vendor/autoload.php');
+require_once('/vendor/autoload.php');
+
+use LINE\LINEBot\HTTPClient\CurlHTTPClient;
 
 $HttpRequestBody = file_get_contents('php://input');
 file_put_contents('php://stderr', $HttpRequestBody);
@@ -21,8 +14,8 @@ $channelAccessToken = 'b31d8B9iAriRU9gT2b2LHKapaDFZzWga3SmlmHCMRWUsl5OplYXV/78fK
 
 $httpClient = new CurlHTTPClient($channelAccessToken);
 // $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($channelAccessToken);
-file_put_contents('php://stderr', json_encode($httpClient->post()));
-$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
+file_put_contents('php://stderr', json_encode($httpClient));
+// $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 $LineJson = new LineJson();
 $data = $LineJson->menu();
 file_put_contents('php://stderr', json_encode($data));
