@@ -58,7 +58,7 @@ foreach ($client->parseEvents() as $event) {
 			if (strtolower($message['text']) == "test") {
 				$client->replyMessage(array(
 					'replyToken' => $event['replyToken'],
-					'messages' => array(
+					// 'messages' => array(
 					// 	array(
 					// 		'type' => 'text', //訊息類型 (文字)
 					// 		'text' => '金罵勒test' //回覆訊息
@@ -76,9 +76,17 @@ foreach ($client->parseEvents() as $event) {
 											"text" => "台北"
 										)
 									),
+									array(
+										'type' => 'action', //訊息類型 (文字)
+										"action" => array(
+											"type" => "message",
+											"label" => "b.台南",
+											"text" => "台南"
+										)
+									),
 								)
 								),
-						)
+						// )
 					// )
 				));
 			} else {
