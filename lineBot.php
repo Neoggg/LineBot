@@ -61,20 +61,20 @@ foreach ($client->parseEvents() as $event) {
 					'messages' => array(
 						array(
 							'type' => 'text', //訊息類型 (文字)
-							'text' => '金罵勒test' //回覆訊息
-						),
-					'quickReply' => array(
-						"item" => array(
-							array(
-								'type' => 'action', //訊息類型 (文字)
-								"action" => array(
-									"type" => "message",
-									"label" => "A.台北",
-									"text" => "台北"
+							'text' => '金罵勒test', //回覆訊息
+							'quickReply' => array(
+								"item" => array(
+									array(
+										'type' => 'action', //訊息類型 (文字)
+										"action" => array(
+											"type" => "message",
+											"label" => "A.台北",
+											"text" => "台北"
+										)
+									),
 								)
-							),
-						)
-					)
+							)
+						),
 					)
 				));
 			} else {
