@@ -68,8 +68,8 @@ foreach ($client->parseEvents() as $event) {
 			} elseif (strtolower($message['text']) == 'meun') {
 				$client->replyMessage(array(
 					'replyToken' => $event['replyToken'],
-					array(
-						"type" => "text", // ①
+					'messages' => array(
+						"type" => "text",
 						"text" => "Select your favorite food category or send me your location!",
 						'quickReply' => array(
 							"items" => array(
