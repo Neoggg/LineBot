@@ -1,5 +1,6 @@
 <?php
 
+use \LINE\LINEBot\HTTPClient\CurlHTTPClient;
 /**
  * LineBot test
  * https://neogg.herokuapp.com/lineBot.php
@@ -18,7 +19,8 @@ file_put_contents('php://stderr', $HttpRequestBody);
 $channelSecret =  '64f2e4b2431a448b2c872f5c58a201a9';
 $channelAccessToken = 'b31d8B9iAriRU9gT2b2LHKapaDFZzWga3SmlmHCMRWUsl5OplYXV/78fKWM/qjkVGX7W/ReVne/1S+9Q9Vc2bBtZsI6td4pb6sqL8MQWCNzLQPI2dh2S5tjEBN4s6+QRkFTXjCqaNTNUZYZ6F0C2cwdB04t89/1O/w1cDnyilFU=';
 
-$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($channelAccessToken);
+$CurlHTTPClient = new CurlHTTPClient($channelAccessToken);
+// $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($channelAccessToken);
 file_put_contents('php://stderr', json_encode($httpClient));
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 $LineJson = new LineJson();
