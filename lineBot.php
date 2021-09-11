@@ -67,7 +67,7 @@ foreach ($client->parseEvents() as $event) {
 							"type" => "text", // ①
 							"text" => "Select your favorite food category or send me your location!",
 							'quickReply' => array(
-								"item" => array(
+								"items" => array(
 									array(
 										'type' => 'action', //訊息類型 (文字)
 										"action" => array(
