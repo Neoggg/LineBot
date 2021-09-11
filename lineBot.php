@@ -10,7 +10,7 @@ use \LINE\LINEBot\HTTPClient\CurlHTTPClient;
 
 // require_once('LINEBotTiny.php');
 require_once('forLine/LineJson.php');
-require_once('vendor/autoload.php');
+// require_once('vendor/autoload.php');
 
 $HttpRequestBody = file_get_contents('php://input');
 file_put_contents('php://stderr', $HttpRequestBody);
@@ -21,7 +21,7 @@ $channelAccessToken = 'b31d8B9iAriRU9gT2b2LHKapaDFZzWga3SmlmHCMRWUsl5OplYXV/78fK
 
 $httpClient = new CurlHTTPClient($channelAccessToken);
 // $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($channelAccessToken);
-file_put_contents('php://stderr', json_encode($httpClient));
+file_put_contents('php://stderr', json_encode($httpClient->post()));
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 $LineJson = new LineJson();
 $data = $LineJson->menu();
