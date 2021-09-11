@@ -1,7 +1,7 @@
 <?php
 // require_once('LINEBotTiny.php');
 require_once('forLine/LineJson.php');
-require_once(__DIR__ . '/autoload.php');
+require_once(__DIR__ . '/vendor/autoload.php');
 
 use LINE\LINEBot\HTTPClient\CurlHTTPClient;
 
