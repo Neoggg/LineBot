@@ -7,7 +7,8 @@ use LINE\LINEBot\HTTPClient\CurlHTTPClient;
 
 $HttpRequestBody = file_get_contents('php://input');
 $even = parser($HttpRequestBody);
-file_put_contents('php://stderr', json_encode($even['even']));
+file_put_contents('php://stderr',$HttpRequestBody);
+file_put_contents('php://stderr', json_encode($even));
 exit;
 
 //設定Token 
