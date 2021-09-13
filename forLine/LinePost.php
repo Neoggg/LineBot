@@ -2,7 +2,7 @@
 
 class LinePost
 {
-  private $requestBody;
+  private $requestBody = [];
   private $userId;
   private $replyToken;
   private $eventsType;
@@ -12,16 +12,16 @@ class LinePost
 
   public function __construct($requestBody)
   {
-    $this->requestBody = $requestBody;
+    // $this->requestBody = $requestBody;
     if (!empty($requestBody)) {
-      $content = json_decode($requestBody, true);
-      foreach ($content as $contentValue) {
-        $this->eventsType = $contentValue['type'];
-        $this->replyToken = $contentValue['replyToken'];
-        $this->userId = $contentValue['source']['userId'];
-        $this->message = $contentValue['message'];
-        $this->messageType = $contentValue['message']['type'];
-        $this->messageContent = $contentValue['message']['text'];
+      $this->requestBody  = json_decode($requestBody, true);
+      foreach ($this->requestBody as $content) {
+        $this->eventsType = $content['type'];
+        $this->replyToken = $content['replyToken'];
+        $this->userId = $content['source']['userId'];
+        $this->message = $content['message'];
+        $this->messageType = $content['message']['type'];
+        $this->messageContent = $content['message']['text'];
       }
     }
   }
