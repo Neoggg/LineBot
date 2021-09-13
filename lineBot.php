@@ -2,14 +2,17 @@
 require 'vendor/autoload.php';
 // require_once('LINEBotTiny.php');
 require_once('forLine/LineJson.php');
+require_once('forLine/LinePost.php');
 
 use LINE\LINEBot\HTTPClient\CurlHTTPClient;
 
 $HttpRequestBody = file_get_contents('php://input');
-$even = parser($HttpRequestBody);
+$linePost = new LinePost($HttpRequestBody);
+file_put_contents('php://stderr', serialize($linePost));
+// $even = parser($HttpRequestBody);
 // file_put_contents('php://stderr',$HttpRequestBody);
-file_put_contents('php://stderr', json_encode($even['events']));
-file_put_contents('php://stderr', json_encode($even['events'][0]['source']['userId']));
+// file_put_contents('php://stderr', json_encode($even['events']));
+// file_put_contents('php://stderr', json_encode($even['events'][0]['source']['userId']));
 // file_put_contents('php://stderr', json_encode($even['events']['message']['text']));
 // file_put_contents('php://stderr', json_encode($even['events']['replyToken']));
 exit;
