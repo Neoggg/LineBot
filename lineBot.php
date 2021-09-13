@@ -9,17 +9,11 @@ use LINE\LINEBot\HTTPClient\CurlHTTPClient;
 $HttpRequestBody = file_get_contents('php://input');
 $linePost = new LinePost($HttpRequestBody);
 // file_put_contents('php://stderr', serialize($linePost));
-file_put_contents('php://stderr', json_encode($linePost->getEventsType()));
-file_put_contents('php://stderr', json_encode($linePost->getReplyToken()));
-file_put_contents('php://stderr', json_encode($linePost->getUserId()));
-file_put_contents('php://stderr', json_encode($linePost->getMessage()));
-// $even = parser($HttpRequestBody);
-// file_put_contents('php://stderr',$HttpRequestBody);
-// file_put_contents('php://stderr', json_encode($even['events']));
-// file_put_contents('php://stderr', json_encode($even['events'][0]['source']['userId']));
-// file_put_contents('php://stderr', json_encode($even['events']['message']['text']));
-// file_put_contents('php://stderr', json_encode($even['events']['replyToken']));
-exit;
+// file_put_contents('php://stderr', json_encode($linePost->getEventsType()));
+// file_put_contents('php://stderr', json_encode($linePost->getReplyToken()));
+// file_put_contents('php://stderr', json_encode($linePost->getUserId()));
+// file_put_contents('php://stderr', json_encode($linePost->getMessage()));
+// exit;
 
 //設定Token 
 $channelSecret =  '64f2e4b2431a448b2c872f5c58a201a9';
@@ -29,15 +23,15 @@ $httpClient = new CurlHTTPClient($channelAccessToken);
 $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($channelAccessToken);
 // file_put_contents('php://stderr', serialize($httpClient));
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
+
+$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('hello');
+$response = $bot->replyMessage($linePost->getReplyToken(), $textMessageBuilder);
+
 $LineJson = new LineJson();
 $data = $LineJson->menu();
 $richMenuBuilder = new \LINE\LINEBot\RichMenuBuilder($data['size'], $data['selected'], $data['name'], $data['chatBarText'], $data['areas']);
 $response = $bot->createRichMenu($richMenuBuilder);
-// file_put_contents('php://stderr', serialize($response));
-// file_put_contents('php://stderr', json_encode($response->getHTTPStatus()));
-// exit;
 $status = $response->getHTTPStatus();
-// file_put_contents('php://stderr', json_encode($status));
 if ($status == 200) {
 	$content = $response->getJSONDecodedBody();
 	$richMenuId = $content['richMenuId'];
