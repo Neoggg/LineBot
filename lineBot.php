@@ -14,7 +14,7 @@ $channelAccessToken = 'b31d8B9iAriRU9gT2b2LHKapaDFZzWga3SmlmHCMRWUsl5OplYXV/78fK
 
 $httpClient = new CurlHTTPClient($channelAccessToken);
 // $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($channelAccessToken);
-file_put_contents('php://stderr', json_encode($httpClient));
+file_put_contents('php://stderr', json_encode($httpClient->test()));
 exit;
 // $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 // $LineJson = new LineJson();

@@ -56,6 +56,11 @@ class CurlHTTPClient implements HTTPClient
         ];
     }
 
+    public function test()
+    {
+        return 'test';
+    }
+
     /**
      * Sends GET request to LINE Messaging API.
      *
