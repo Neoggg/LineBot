@@ -12,10 +12,10 @@ class LinePost
 
   public function __construct($requestBody)
   {
-    // $this->requestBody = $requestBody;
+    $this->requestBody  = json_decode($requestBody, true);
     if (!empty($requestBody)) {
-      $this->requestBody  = json_decode($requestBody, true);
-      foreach ($this->requestBody as $content) {
+      // $this->requestBody  = json_decode($requestBody, true);
+      foreach ($this->requestBody['events'] as $content) {
         // $this->eventsType = $content['type'];
         $this->replyToken = $content['replyToken'];
         $this->userId = $content['source']['userId'];
