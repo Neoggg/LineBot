@@ -17,13 +17,13 @@ class LineJson
       [1666,0,833,843],
     ];
     $actionArr = [
-      ["postback", "label1", "test"],
-      ["postback", "label2", "test2"],
-      ["postback", "label3", "test3"],
+      ["postback", "test"],
+      ["postback", "test2"],
+      ["postback", "test3"],
     ];
     foreach ($boundArr as $key => $value) {
       $bounds = new \LINE\LINEBot\RichMenuBuilder\RichMenuAreaBoundsBuilder($value[0], $value[1], $value[2], $value[3]);
-      $action = new \LINE\LINEBot\RichMenuBuilder\RichMenuAreaActionBuilder($actionArr[$key][0],$actionArr[$key][1],$actionArr[$key][2]);
+      $action = new \LINE\LINEBot\TemplateActionBuilder\PostbackTemplateActionBuilder($actionArr[$key][0],$actionArr[$key][1]);
       $reslut['areas'][] = new \LINE\LINEBot\RichMenuBuilder\RichMenuAreaBuilder($bounds, $action);
     }
     // $bounds = new \LINE\LINEBot\RichMenuBuilder\RichMenuAreaBoundsBuilder(0,0,2500,1686);
