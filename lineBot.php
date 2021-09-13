@@ -27,6 +27,9 @@ $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('hello');
 $response = $bot->replyMessage($linePost->getReplyToken(), $textMessageBuilder);
 
+$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('hello2');
+$response = $bot->replyMessage($linePost->getReplyToken(), $textMessageBuilder);
+
 $LineJson = new LineJson();
 $data = $LineJson->menu();
 $richMenuBuilder = new \LINE\LINEBot\RichMenuBuilder($data['size'], $data['selected'], $data['name'], $data['chatBarText'], $data['areas']);
