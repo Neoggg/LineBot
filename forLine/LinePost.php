@@ -14,9 +14,8 @@ class LinePost
   {
     $this->requestBody  = json_decode($requestBody, true);
     if (!empty($requestBody)) {
-      // $this->requestBody  = json_decode($requestBody, true);
       foreach ($this->requestBody['events'] as $content) {
-        // $this->eventsType = $content['type'];
+        $this->eventsType = $content['type'];
         $this->replyToken = $content['replyToken'];
         $this->userId = $content['source']['userId'];
         $this->message = $content['message'];
