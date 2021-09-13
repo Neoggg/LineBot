@@ -7,8 +7,10 @@ use LINE\LINEBot\HTTPClient\CurlHTTPClient;
 
 $HttpRequestBody = file_get_contents('php://input');
 $even = parser($HttpRequestBody);
-file_put_contents('php://stderr',$HttpRequestBody);
-file_put_contents('php://stderr', json_encode($even));
+// file_put_contents('php://stderr',$HttpRequestBody);
+file_put_contents('php://stderr', json_encode($even['events']['source']['userId']));
+file_put_contents('php://stderr', json_encode($even['events']['message']['text']));
+file_put_contents('php://stderr', json_encode($even['events']['replyToken']));
 exit;
 
 //設定Token 
@@ -112,10 +114,34 @@ foreach ($client->parseEvents() as $event) {
 // file_put_contents('php://stderr', json_encode($dataEven));
 // file_put_contents('php://stderr', $HttpRequestBody);
 
+/**
+ * "events":[{
+ * 						"type":"message",
+ * 						"message":
+ * 						{
+ * 							"type":"text",
+ * 							"id":"14737459099128",
+ * 							"text":"..."
+ * 						},
+ * 						"timestamp":1631504988589,
+ * 						"source":
+ * 						{
+ * 							"type":"user",
+ * 							"userId":"U420aa8a5b3859615a73a08c3f9fa53e2"
+ * 						},
+ * 						"replyToken":"e38abc6740624b099206b94b25a17967",
+ * 						"mode":"active"
+ * 					}]
+ */
 function parser($body)
 {
 	$data = [];
 	$entityBody = file_get_contents('php://input');
 	$data = json_decode($entityBody, true);
+	// $data['events']['message'];
+	// $data['events']['message']['type'];
+	// $data['events']['message']['text'];
+	// $data['events']['replyToken'];
+	// $data['events']['source']['userId'];
 	return $data;
 }
