@@ -5,8 +5,10 @@ require_once('forLine/LineJson.php');
 
 use LINE\LINEBot\HTTPClient\CurlHTTPClient;
 
-// $HttpRequestBody = file_get_contents('php://input');
-// file_put_contents('php://stderr', $HttpRequestBody);
+$HttpRequestBody = file_get_contents('php://input');
+$even = parser($HttpRequestBody);
+file_put_contents('php://stderr', json_encode($even['even']));
+exit;
 
 //設定Token 
 $channelSecret =  '64f2e4b2431a448b2c872f5c58a201a9';
@@ -108,3 +110,11 @@ foreach ($client->parseEvents() as $event) {
 // error_log(); 
 // file_put_contents('php://stderr', json_encode($dataEven));
 // file_put_contents('php://stderr', $HttpRequestBody);
+
+function parser($body)
+{
+	$data = [];
+	$entityBody = file_get_contents('php://input');
+	$data = json_decode($entityBody, true);
+	return $data;
+}
