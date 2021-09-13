@@ -4,7 +4,7 @@ class LineJson
 {
   public function menu()
   {
-    $size = new \LINE\LINEBot\RichMenuBuilder\RichMenuSizeBuilder(843,2500);
+    $size = new \LINE\LINEBot\RichMenuBuilder\RichMenuSizeBuilder(1686,2500);
     $reslut = [
       "size" => $size,
       "selected" => true,
