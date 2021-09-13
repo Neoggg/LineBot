@@ -58,7 +58,7 @@ class CurlHTTPClient implements HTTPClient
 
     public function test()
     {
-        return 'test';
+        return ['test' => 'composer'];
     }
 
     /**
