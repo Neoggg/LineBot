@@ -23,7 +23,7 @@ $response = $bot->createRichMenu($richMenuBuilder);
 // file_put_contents('php://stderr', serialize($response));
 // file_put_contents('php://stderr', json_encode($response->getHTTPStatus()));
 // exit;
-$status = $responsresponse->getHTTPStatus();
+$status = $response->getHTTPStatus();
 file_put_contents('php://stderr', json_encode($status));
 if ($status == 200) {
 	$content = $response->getJSONDecodedBody();
