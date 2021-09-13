@@ -5,7 +5,7 @@ class LineJson
   public function menu()
   {
     $size = new \LINE\LINEBot\RichMenuBuilder\RichMenuSizeBuilder(1686,2500);
-    $reslut = [
+    $result = [
       "size" => $size,
       "selected" => true,
       "name" => "Nice richmenu",
@@ -45,6 +45,6 @@ class LineJson
       }
       $result['areas'][] = new \LINE\LINEBot\RichMenuBuilder\RichMenuAreaBuilder($bounds, $action);
     }
-    return $reslut;
+    return $result;
   }
 }
