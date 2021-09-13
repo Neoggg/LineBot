@@ -19,8 +19,8 @@ class LinePost
         $this->replyToken = $content['replyToken'];
         $this->userId = $content['source']['userId'];
         $this->message = $content['message'];
-        $this->messageType = $content['message']['type'];
-        $this->messageContent = $content['message']['text'];
+        // $this->messageType = $content['message']['type'];
+        // $this->messageContent = $content['message']['text'];
       }
     }
   }

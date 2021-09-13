@@ -39,6 +39,7 @@ $response = $bot->replyMessage($linePost->getReplyToken(), $textMessageBuilder);
 $LineJson = new LineJson();
 $data = $LineJson->menu();
 $richMenuBuilder = new \LINE\LINEBot\RichMenuBuilder($data['size'], $data['selected'], $data['name'], $data['chatBarText'], $data['areas']);
+file_put_contents('php://stderr', serialize($richMenuBuilder));
 $response = $bot->createRichMenu($richMenuBuilder);
 $status = $response->getHTTPStatus();
 if ($status == 200) {
