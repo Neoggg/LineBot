@@ -22,9 +22,11 @@ $data = $LineJson->menu();
 $richMenuBuilder = new \LINE\LINEBot\RichMenuBuilder($data['size'], $data['selected'], $data['name'], $data['chatBarText'], $data['areas']);
 // file_put_contents('php://stderr', json_encode($richMenuBuilder));
 $response = $bot->createRichMenu($richMenuBuilder);
+file_put_contents('php://stderr', json_encode($response));
 file_put_contents('php://stderr', serialize($response));
+file_put_contents('php://stderr', json_encode($responsresponse->getHTTPStatus()));
 exit;
-// $status = $response->getHTTPStatus();
+// $status = $responsresponse->getHTTPStatus();
 // if ($status == 200) {
 // 	$content = $response->getJSONDecodedBody();
 // 	$richMenuId = $content['richMenuId'];
