@@ -1,12 +1,12 @@
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once('LINEBotTiny.php');
-require_once('forLine/LineJson.php');
+require 'vendor/autoload.php';
+// require_once('LINEBotTiny.php');
+// require_once('forLine/LineJson.php');
 
 use LINE\LINEBot\HTTPClient\CurlHTTPClient;
 
-$HttpRequestBody = file_get_contents('php://input');
-file_put_contents('php://stderr', $HttpRequestBody);
+// $HttpRequestBody = file_get_contents('php://input');
+// file_put_contents('php://stderr', $HttpRequestBody);
 
 //設定Token 
 $channelSecret =  '64f2e4b2431a448b2c872f5c58a201a9';
@@ -15,6 +15,7 @@ $channelAccessToken = 'b31d8B9iAriRU9gT2b2LHKapaDFZzWga3SmlmHCMRWUsl5OplYXV/78fK
 $httpClient = new CurlHTTPClient($channelAccessToken);
 // $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($channelAccessToken);
 file_put_contents('php://stderr', json_encode($httpClient));
+exit;
 // $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 // $LineJson = new LineJson();
 // $data = $LineJson->menu();
