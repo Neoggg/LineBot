@@ -24,12 +24,11 @@ $response = $bot->createRichMenu($richMenuBuilder);
 // file_put_contents('php://stderr', json_encode($response->getHTTPStatus()));
 // exit;
 $status = $response->getHTTPStatus();
-file_put_contents('php://stderr', json_encode($status));
+// file_put_contents('php://stderr', json_encode($status));
 if ($status == 200) {
 	$content = $response->getJSONDecodedBody();
-	file_put_contents('php://stderr', json_encode($content));
-	file_put_contents('php://stderr', serialize($content));
 	$richMenuId = $content['richMenuId'];
+	file_put_contents('php://stderr', json_encode($richMenuId));
 	$imagePath = __DIR__ . '/el4.jpg';
 	$contentType = 'image/jpeg';
 	$imgResponse = $bot->uploadRichMenuImage($richMenuId, $imagePath, $contentType);
@@ -41,11 +40,13 @@ if ($status == 200) {
 		'Content-Type: application/json',
 		'Authorization: Bearer ' . $channelAccessToken
 	]);
-	// curl_close($ch);
+	$result = curl_exec($ch);
+	file_put_contents('php://stderr', json_encode($result));
+	curl_close($ch);
 } else {
 	error_log('fail'); 
 }
-
+exit;
 //讀取資訊 
 $client = new LINEBotTiny($channelAccessToken, $channelSecret);
 $dataEven = $client->parseEvents();
