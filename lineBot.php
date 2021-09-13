@@ -31,15 +31,16 @@ $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 // $response = $bot->replyMessage($linePost->getReplyToken(), $textMessageBuilder);
 
 $QuickReplyMessageBuilder = new QuickReplyMessageBuilder([
-	new QuickReplyButtonBuilder(new LocationTemplateActionBuilder('Location'))
+	new QuickReplyButtonBuilder(new LocationTemplateActionBuilder('Location')),
+	new QuickReplyButtonBuilder(new  \LINE\LINEBot\TemplateActionBuilder\CameraTemplateActionBuilder('Camera')),
+	new QuickReplyButtonBuilder(new  \LINE\LINEBot\TemplateActionBuilder\CameraRollTemplateActionBuilder('Camera roll')),
 ]);
 $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('hello', $QuickReplyMessageBuilder);
 $response = $bot->replyMessage($linePost->getReplyToken(), $textMessageBuilder);
-
 $LineJson = new LineJson();
 $data = $LineJson->menu();
 $richMenuBuilder = new \LINE\LINEBot\RichMenuBuilder($data['size'], $data['selected'], $data['name'], $data['chatBarText'], $data['areas']);
-file_put_contents('php://stderr', serialize($richMenuBuilder));
+// file_put_contents('php://stderr', serialize($richMenuBuilder));
 $response = $bot->createRichMenu($richMenuBuilder);
 $status = $response->getHTTPStatus();
 if ($status == 200) {
