@@ -16,7 +16,7 @@ $httpClient = new CurlHTTPClient($channelAccessToken);
 $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($channelAccessToken);
 // file_put_contents('php://stderr', serialize($httpClient));
 // exit;
-// $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
+$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 $LineJson = new LineJson();
 $data = $LineJson->menu();
 $richMenuBuilder = new \LINE\LINEBot\RichMenuBuilder($data['size'], $data['selected'], $data['name'], $data['chatBarText'], $data['areas']);
