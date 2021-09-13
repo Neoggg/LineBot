@@ -5,6 +5,9 @@ require_once('forLine/LineJson.php');
 require_once('forLine/LinePost.php');
 
 use LINE\LINEBot\HTTPClient\CurlHTTPClient;
+use \LINE\LINEBot\QuickReplyBuilder\QuickReplyMessageBuilder;
+use \LINE\LINEBot\QuickReplyBuilder\ButtonBuilder\QuickReplyButtonBuilder;
+use \LINE\LINEBot\TemplateActionBuilder\LocationTemplateActionBuilder;
 
 $HttpRequestBody = file_get_contents('php://input');
 $linePost = new LinePost($HttpRequestBody);
@@ -24,11 +27,15 @@ $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($channelAccessToken);
 // file_put_contents('php://stderr', serialize($httpClient));
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 
-$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('hello');
-$response = $bot->replyMessage($linePost->getReplyToken(), $textMessageBuilder);
+// $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('hello');
+// $response = $bot->replyMessage($linePost->getReplyToken(), $textMessageBuilder);
 
-$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('hello2');
+$QuickReplyMessageBuilder = new QuickReplyMessageBuilder([
+	new QuickReplyButtonBuilder(new LocationTemplateActionBuilder('Location'))
+]);
+$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('hello', $QuickReplyMessageBuilder);
 $response = $bot->replyMessage($linePost->getReplyToken(), $textMessageBuilder);
+exit;
 
 $LineJson = new LineJson();
 $data = $LineJson->menu();
