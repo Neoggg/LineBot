@@ -8,7 +8,11 @@ use LINE\LINEBot\HTTPClient\CurlHTTPClient;
 
 $HttpRequestBody = file_get_contents('php://input');
 $linePost = new LinePost($HttpRequestBody);
-file_put_contents('php://stderr', serialize($linePost));
+// file_put_contents('php://stderr', serialize($linePost));
+file_put_contents('php://stderr', json_encode($linePost->getEventsType()));
+file_put_contents('php://stderr', json_encode($linePost->getReplyToken()));
+file_put_contents('php://stderr', json_encode($linePost->getUserId()));
+file_put_contents('php://stderr', json_encode($linePost->getMessage()));
 // $even = parser($HttpRequestBody);
 // file_put_contents('php://stderr',$HttpRequestBody);
 // file_put_contents('php://stderr', json_encode($even['events']));
