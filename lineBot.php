@@ -8,9 +8,10 @@ use LINE\LINEBot\HTTPClient\CurlHTTPClient;
 $HttpRequestBody = file_get_contents('php://input');
 $even = parser($HttpRequestBody);
 // file_put_contents('php://stderr',$HttpRequestBody);
-file_put_contents('php://stderr', json_encode($even['events']['source']['userId']));
-file_put_contents('php://stderr', json_encode($even['events']['message']['text']));
-file_put_contents('php://stderr', json_encode($even['events']['replyToken']));
+file_put_contents('php://stderr', json_encode($even['events']));
+// file_put_contents('php://stderr', json_encode($even['events']['source']['userId']));
+// file_put_contents('php://stderr', json_encode($even['events']['message']['text']));
+// file_put_contents('php://stderr', json_encode($even['events']['replyToken']));
 exit;
 
 //設定Token 
