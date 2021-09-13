@@ -35,7 +35,6 @@ $QuickReplyMessageBuilder = new QuickReplyMessageBuilder([
 ]);
 $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('hello', $QuickReplyMessageBuilder);
 $response = $bot->replyMessage($linePost->getReplyToken(), $textMessageBuilder);
-exit;
 
 $LineJson = new LineJson();
 $data = $LineJson->menu();
@@ -46,7 +45,7 @@ if ($status == 200) {
 	$content = $response->getJSONDecodedBody();
 	$richMenuId = $content['richMenuId'];
 	file_put_contents('php://stderr', json_encode($richMenuId));
-	$imagePath = __DIR__ . '/el4.jpg';
+	$imagePath = __DIR__ . '/ellall.jpg';
 	$contentType = 'image/jpeg';
 	$imgResponse = $bot->uploadRichMenuImage($richMenuId, $imagePath, $contentType);
 	$ch = curl_init();
