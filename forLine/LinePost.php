@@ -15,14 +15,14 @@ class LinePost
     // $this->requestBody = $requestBody;
     if (!empty($requestBody)) {
       $this->requestBody  = json_decode($requestBody, true);
-      // foreach ($this->requestBody as $content) {
-      //   $this->eventsType = $content['type'];
-      //   $this->replyToken = $content['replyToken'];
-      //   $this->userId = $content['source']['userId'];
-      //   $this->message = $content['message'];
-      //   $this->messageType = $content['message']['type'];
-      //   $this->messageContent = $content['message']['text'];
-      // }
+      foreach ($this->requestBody as $content) {
+        // $this->eventsType = $content['type'];
+        $this->replyToken = $content['replyToken'];
+        $this->userId = $content['source']['userId'];
+        $this->message = $content['message'];
+        $this->messageType = $content['message']['type'];
+        $this->messageContent = $content['message']['text'];
+      }
     }
   }
 
