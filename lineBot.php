@@ -28,7 +28,7 @@ $QuickReplyMessageBuilder = new QuickReplyMessageBuilder([
 	new QuickReplyButtonBuilder(new  \LINE\LINEBot\TemplateActionBuilder\CameraRollTemplateActionBuilder('Camera roll')),
 ]);
 $messageInfo = $linePost->getMessage();
-if ($messafeInfo['type'] == 'text') {
+if ($messageInfo['type'] == 'text') {
 	$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($messageInfo['text'], $QuickReplyMessageBuilder);
 	$bot->replyMessage($linePost->getReplyToken(), $textMessageBuilder);
 }
