@@ -27,7 +27,7 @@ $QuickReplyMessageBuilder = new QuickReplyMessageBuilder([
 ]);
 // $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('tset', $QuickReplyMessageBuilder);
 // $bot->replyMessage($linePost->getReplyToken(), $textMessageBuilder);
-$pushMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($linePost->getMessage());
+$pushMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder(json_encode($linePost->getMessage()));
 $bot->pushMessage($linePost->getUserId(), $pushMessageBuilder);
 $LineJson = new LineJson();
 $data = $LineJson->menu();
@@ -37,7 +37,6 @@ $status = $response->getHTTPStatus();
 if ($status == 200) {
 	$content = $response->getJSONDecodedBody();
 	$richMenuId = $content['richMenuId'];
-	file_put_contents('php://stderr', json_encode($richMenuId));
 	$imagePath = __DIR__ . '/ellall.jpg';
 	$contentType = 'image/jpeg';
 	$imgResponse = $bot->uploadRichMenuImage($richMenuId, $imagePath, $contentType);
@@ -50,7 +49,6 @@ if ($status == 200) {
 		'Authorization: Bearer ' . $channelAccessToken
 	]);
 	$result = curl_exec($ch);
-	file_put_contents('php://stderr', json_encode($result));
 	curl_close($ch);
 } else {
 	error_log('fail'); 
