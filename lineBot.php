@@ -27,13 +27,13 @@ $QuickReplyMessageBuilder = new QuickReplyMessageBuilder([
 	new QuickReplyButtonBuilder(new  \LINE\LINEBot\TemplateActionBuilder\CameraTemplateActionBuilder('Camera')),
 	new QuickReplyButtonBuilder(new  \LINE\LINEBot\TemplateActionBuilder\CameraRollTemplateActionBuilder('Camera roll')),
 ]);
-$messafeInfo = $linePost->getMessage();
-if ($messafeInfo['type'] == 'message') {
-	$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($messafeInfo['text'], $QuickReplyMessageBuilder);
+$messageInfo = $linePost->getMessage();
+if ($messafeInfo['type'] == 'text') {
+	$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($messageInfo['text'], $QuickReplyMessageBuilder);
 	$bot->replyMessage($linePost->getReplyToken(), $textMessageBuilder);
 }
-if ($messafeInfo['type'] == 'location') {
-	$pushMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($messafeInfo['latitude'] . ' ' . $messafeInfo['longitude']);
+if ($messageInfo['type'] == 'location') {
+	$pushMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($messageInfo['latitude'] . ' ' . $messafeInfo['longitude']);
 	$bot->pushMessage($linePost->getUserId(), $pushMessageBuilder);
 }
 $LineJson = new LineJson();
