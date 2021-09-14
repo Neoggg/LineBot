@@ -26,9 +26,9 @@ $QuickReplyMessageBuilder = new QuickReplyMessageBuilder([
 	new QuickReplyButtonBuilder(new  \LINE\LINEBot\TemplateActionBuilder\CameraRollTemplateActionBuilder('Camera roll')),
 ]);
 $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($linePost->getMessage(), $QuickReplyMessageBuilder);
-$pushMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($HttpRequestBody, $QuickReplyMessageBuilder);
+// $pushMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($HttpRequestBody, $QuickReplyMessageBuilder);
 $bot->replyMessage($linePost->getReplyToken(), $textMessageBuilder);
-$bot->pushMessage($linePost->getUserId(), $pushMessageBuilder);
+// $bot->pushMessage($linePost->getUserId(), $pushMessageBuilder);
 $LineJson = new LineJson();
 $data = $LineJson->menu();
 $richMenuBuilder = new \LINE\LINEBot\RichMenuBuilder($data['size'], $data['selected'], $data['name'], $data['chatBarText'], $data['areas']);
