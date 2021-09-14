@@ -16,7 +16,7 @@ class LinePost
         $this->eventsType = $content['type'];
         $this->replyToken = $content['replyToken'];
         $this->userId = $content['source']['userId'];
-        $this->message = isset($content['message']) ? $content['message'] : '';
+        $this->message = $content['message'];
       }
     }
   }
