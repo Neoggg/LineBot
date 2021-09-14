@@ -35,8 +35,9 @@ $QuickReplyMessageBuilder = new QuickReplyMessageBuilder([
 	new QuickReplyButtonBuilder(new  \LINE\LINEBot\TemplateActionBuilder\CameraTemplateActionBuilder('Camera')),
 	new QuickReplyButtonBuilder(new  \LINE\LINEBot\TemplateActionBuilder\CameraRollTemplateActionBuilder('Camera roll')),
 ]);
-$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('hello', $QuickReplyMessageBuilder);
+$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($linePost->getMessage(), $QuickReplyMessageBuilder);
 $response = $bot->replyMessage($linePost->getReplyToken(), $textMessageBuilder);
+$bot->pushMessage($linePost->getReplyToken(), $textMessageBuilder);
 $LineJson = new LineJson();
 $data = $LineJson->menu();
 $richMenuBuilder = new \LINE\LINEBot\RichMenuBuilder($data['size'], $data['selected'], $data['name'], $data['chatBarText'], $data['areas']);

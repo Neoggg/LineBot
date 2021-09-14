@@ -7,8 +7,6 @@ class LinePost
   private $replyToken;
   private $eventsType;
   private $message;
-  private $messageType;
-  private $messageContent;
 
   public function __construct($requestBody)
   {
@@ -19,8 +17,6 @@ class LinePost
         $this->replyToken = $content['replyToken'];
         $this->userId = $content['source']['userId'];
         $this->message = isset($content['message']) ? $content['message'] : '';
-        // $this->messageType = $content['message']['type'];
-        // $this->messageContent = $content['message']['text'];
       }
     }
   }
