@@ -10,7 +10,7 @@ use \LINE\LINEBot\QuickReplyBuilder\ButtonBuilder\QuickReplyButtonBuilder;
 use \LINE\LINEBot\TemplateActionBuilder\LocationTemplateActionBuilder;
 
 $HttpRequestBody = file_get_contents('php://input');
-file_put_contents('php://stderr', json_encode($HttpRequestBody));
+// file_put_contents('php://stderr', json_encode($HttpRequestBody));
 $linePost = new LinePost($HttpRequestBody);
 
 //設定Token 
