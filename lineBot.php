@@ -12,7 +12,7 @@ use \LINE\LINEBot\TemplateActionBuilder\LocationTemplateActionBuilder;
 $HttpRequestBody = file_get_contents('php://input');
 // file_put_contents('php://stderr', json_encode($HttpRequestBody));
 $linePost = new LinePost($HttpRequestBody);
-
+file_put_contents('php://stderr', json_encode($linePost->getMessage()));
 //設定Token 
 $channelSecret =  '64f2e4b2431a448b2c872f5c58a201a9';
 $channelAccessToken = 'b31d8B9iAriRU9gT2b2LHKapaDFZzWga3SmlmHCMRWUsl5OplYXV/78fKWM/qjkVGX7W/ReVne/1S+9Q9Vc2bBtZsI6td4pb6sqL8MQWCNzLQPI2dh2S5tjEBN4s6+QRkFTXjCqaNTNUZYZ6F0C2cwdB04t89/1O/w1cDnyilFU=';
@@ -25,10 +25,10 @@ $QuickReplyMessageBuilder = new QuickReplyMessageBuilder([
 	new QuickReplyButtonBuilder(new  \LINE\LINEBot\TemplateActionBuilder\CameraTemplateActionBuilder('Camera')),
 	new QuickReplyButtonBuilder(new  \LINE\LINEBot\TemplateActionBuilder\CameraRollTemplateActionBuilder('Camera roll')),
 ]);
-$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder(json_encode($linePost->getMessage()), $QuickReplyMessageBuilder);
+$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($linePost, $QuickReplyMessageBuilder);
 // $pushMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($HttpRequestBody, $QuickReplyMessageBuilder);
 // $bot->replyMessage($linePost->getReplyToken(), $textMessageBuilder);
-$bot->pushMessage($linePost->getUserId(), $pushMessageBuilder);
+$bot->pushMessage($linePost->getUserId(), $textMessageBuilder);
 $LineJson = new LineJson();
 $data = $LineJson->menu();
 $richMenuBuilder = new \LINE\LINEBot\RichMenuBuilder($data['size'], $data['selected'], $data['name'], $data['chatBarText'], $data['areas']);
