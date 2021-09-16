@@ -29,7 +29,7 @@ foreach ($lineReplyMess as $key => $content) {
 		$UriTemplate[] = new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder($content['searchUrlLowPriceText'], $content['searchUrlLowPrice']);
 	}
 	if (!empty($content['searchUrlAll'])) {
-		$UriTemplate[] = new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder($content['searchUrlAllText'], $content['searchUrlAll']);
+		$UriTemplate[] = new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder($content['searchUrlAllText'], 'https://i.imgur.com/VKihAYW.jpg');
 	}
 	$CarouselColumn[] = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder($content['typecode'], $content['text'], 'https://i.imgur.com/VKihAYW.jpg', $UriTemplate, '#FFFFFF');
 }
