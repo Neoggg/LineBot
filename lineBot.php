@@ -22,6 +22,29 @@ $channelAccessToken = 'b31d8B9iAriRU9gT2b2LHKapaDFZzWga3SmlmHCMRWUsl5OplYXV/78fK
 $httpClient = new CurlHTTPClient($channelAccessToken);
 $bot = new LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 
+$Carousel = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder(
+	[
+		new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder('公寓', '60筆', 'https://i.imgur.com/VKihAYW.jpg',
+			[
+				new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder('url', 'https://open.spotify.com/track/12095GlriCNhVCbJV30vKw?si=c8713d60fa4f4a4e'),
+				new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder('url', 'https://open.spotify.com/track/12095GlriCNhVCbJV30vKw?si=c8713d60fa4f4a4e'),
+			],
+			'#FFFFFF',
+		),
+		new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder('電梯大樓', '70筆', 'https://i.imgur.com/VKihAYW.jpg',
+			[
+				new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder('url', 'https://open.spotify.com/track/12095GlriCNhVCbJV30vKw?si=c8713d60fa4f4a4e'),
+				new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder('url', 'https://open.spotify.com/track/12095GlriCNhVCbJV30vKw?si=c8713d60fa4f4a4e'),
+			],
+			'#FFFFFF',
+		)
+	],
+	'rectangle','cover'
+);
+$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TemplateMessageBuilder('CCC', $Carousel);
+$bot->replyMessage($linePost->getReplyToken(), $textMessageBuilder);
+exit;
+
 $ButtonTemplate = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\ButtonTemplateBuilder(
 	'公寓',
 	'60筆60筆60筆60筆60筆60筆60筆60筆60筆60筆60筆60筆60筆60筆60筆60筆',
