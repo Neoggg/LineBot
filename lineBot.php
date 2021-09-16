@@ -21,26 +21,38 @@ $channelAccessToken = 'b31d8B9iAriRU9gT2b2LHKapaDFZzWga3SmlmHCMRWUsl5OplYXV/78fK
 
 $httpClient = new CurlHTTPClient($channelAccessToken);
 $bot = new LINEBot($httpClient, ['channelSecret' => $channelSecret]);
-
-$Carousel = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder(
-	[
-		new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder('公寓', '60筆', 'https://i.imgur.com/VKihAYW.jpg',
-			[
-				new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder('url', 'https://open.spotify.com/track/12095GlriCNhVCbJV30vKw?si=c8713d60fa4f4a4e'),
-				new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder('url', 'https://open.spotify.com/track/12095GlriCNhVCbJV30vKw?si=c8713d60fa4f4a4e'),
-			],
-			'#FFFFFF',
-		),
-		new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder('電梯大樓', '70筆', 'https://i.imgur.com/VKihAYW.jpg',
-			[
-				new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder('url', 'https://open.spotify.com/track/12095GlriCNhVCbJV30vKw?si=c8713d60fa4f4a4e'),
-				new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder('url', 'https://open.spotify.com/track/12095GlriCNhVCbJV30vKw?si=c8713d60fa4f4a4e'),
-			],
-			'#FFFFFF',
-		)
-	],
-	'rectangle','cover'
-);
+$lineReplyMess = array ( 0 => array ( 'text' => '500m以內共有60筆', 'typecode' => '公寓', 'count' => 60, 'searchUrlLowPrice' => 'https://dev-member-neogg.rakuya.com.tw/user_needs/search-result?city=0&zipcode=106&location=25.02802816475,121.54935939253&typecode=R1&price=~1200', 'searchUrlLowPriceText' => '< 1200萬 低總價', 'searchUrlAll' => 'https://dev-member-neogg.rakuya.com.tw/user_needs/search-result?city=0&zipcode=106&location=25.02802816475,121.54935939253&typecode=R1&', 'searchUrlAllText' => '全部查看', ), 1 => array ( 'text' => '500m以內共有132筆', 'typecode' => '電梯大樓', 'count' => 132, 'searchUrlLowPrice' => 'https://dev-member-neogg.rakuya.com.tw/user_needs/search-result?city=0&zipcode=106&location=25.02802816475,121.54935939253&typecode=R2&price=~1200', 'searchUrlLowPriceText' => '< 1200萬 低總價', 'searchUrlAll' => 'https://dev-member-neogg.rakuya.com.tw/user_needs/search-result?city=0&zipcode=106&location=25.02802816475,121.54935939253&typecode=R2&', 'searchUrlAllText' => '全部查看', ), 2 => array ( 'text' => '500m以內共有24筆', 'typecode' => '華廈', 'count' => 24, 'searchUrlLowPrice' => 'https://dev-member-neogg.rakuya.com.tw/user_needs/search-result?city=0&zipcode=106&location=25.02802816475,121.54935939253&typecode=R2&price=~1200', 'searchUrlLowPriceText' => '< 1200萬 低總價', 'searchUrlAll' => 'https://dev-member-neogg.rakuya.com.tw/user_needs/search-result?city=0&zipcode=106&location=25.02802816475,121.54935939253&typecode=R2&', 'searchUrlAllText' => '全部查看', ), 3 => array ( 'text' => '500m以內共有73筆', 'typecode' => '店面', 'count' => 73, 'searchUrlLowPrice' => 'https://dev-member-neogg.rakuya.com.tw/user_needs/search-result?city=0&zipcode=106&location=25.02802816475,121.54935939253&typecode=B2&price=~1200', 'searchUrlLowPriceText' => '< 1200萬 低總價', 'searchUrlAll' => 'https://dev-member-neogg.rakuya.com.tw/user_needs/search-result?city=0&zipcode=106&location=25.02802816475,121.54935939253&typecode=B2&', 'searchUrlAllText' => '全部查看', ), 4 => array ( 'text' => '500m以內共有27筆', 'typecode' => '辦公大樓', 'count' => 27, 'searchUrlLowPrice' => 'https://dev-member-neogg.rakuya.com.tw/user_needs/search-result?city=0&zipcode=106&location=25.02802816475,121.54935939253&typecode=B1&price=~1200', 'searchUrlLowPriceText' => '< 1200萬 低總價', 'searchUrlAll' => 'https://dev-member-neogg.rakuya.com.tw/user_needs/search-result?city=0&zipcode=106&location=25.02802816475,121.54935939253&typecode=B1&', 'searchUrlAllText' => '全部查看', ), 5 => array ( 'text' => '500m以內共有6筆', 'typecode' => '套房', 'count' => 6, 'searchUrlLowPrice' => 'https://dev-member-neogg.rakuya.com.tw/user_needs/search-result?city=0&zipcode=106&location=25.02802816475,121.54935939253&typecode=R3&price=~1200', 'searchUrlLowPriceText' => '< 1200萬 低總價', 'searchUrlAll' => 'https://dev-member-neogg.rakuya.com.tw/user_needs/search-result?city=0&zipcode=106&location=25.02802816475,121.54935939253&typecode=R3&', 'searchUrlAllText' => '全部查看', ), 6 => array ( 'text' => '500m以內共有4筆', 'typecode' => '透天厝', 'count' => 4, 'searchUrlLowPrice' => 'https://dev-member-neogg.rakuya.com.tw/user_needs/search-result?city=0&zipcode=106&location=25.02802816475,121.54935939253&typecode=R5&price=~1200', 'searchUrlLowPriceText' => '< 1200萬 低總價', 'searchUrlAll' => 'https://dev-member-neogg.rakuya.com.tw/user_needs/search-result?city=0&zipcode=106&location=25.02802816475,121.54935939253&typecode=R5&', 'searchUrlAllText' => '全部查看', ), 7 => array ( 'text' => '500m以內共有4筆', 'typecode' => '樓中樓', 'count' => 4, 'searchUrlLowPrice' => 'https://dev-member-neogg.rakuya.com.tw/user_needs/search-result?city=0&zipcode=106&location=25.02802816475,121.54935939253&typecode=R6&price=~1200', 'searchUrlLowPriceText' => '< 1200萬 低總價', 'searchUrlAll' => 'https://dev-member-neogg.rakuya.com.tw/user_needs/search-result?city=0&zipcode=106&location=25.02802816475,121.54935939253&typecode=R6&', 'searchUrlAllText' => '全部查看', ), 8 => array ( 'text' => '500m以內共有1筆', 'typecode' => '別墅', 'count' => 1, 'searchUrlLowPrice' => 'https://dev-member-neogg.rakuya.com.tw/user_needs/search-result?city=0&zipcode=106&location=25.02802816475,121.54935939253&typecode=R4&price=~1200', 'searchUrlLowPriceText' => '< 1200萬 低總價', 'searchUrlAll' => 'https://dev-member-neogg.rakuya.com.tw/user_needs/search-result?city=0&zipcode=106&location=25.02802816475,121.54935939253&typecode=R4&', 'searchUrlAllText' => '全部查看', ), );
+$CarouselColumn = [];
+foreach ($lineReplyMess as $key => $content) {
+	$UriTemplate = [];
+	if (!empty($content['searchUrlLowPrice'])) {
+		$UriTemplate[] = new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder($content['searchUrlLowPriceText'], $content['searchUrlLowPrice']);
+	}
+	if (!empty($content['searchUrlAll'])) {
+		$UriTemplate[] = new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder($content['searchUrlAllText'], $content['searchUrlAll']);
+	}
+	$CarouselColumn[] = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder($content['typecode'], $content['typecode'], 'https://i.imgur.com/VKihAYW.jpg', $UriTemplate, '#FFFFFF');
+}
+$Carousel = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder($CarouselColumn[],'rectangle','cover');
+// $Carousel = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder(
+// 	[
+// 		new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder('公寓', '60筆', 'https://i.imgur.com/VKihAYW.jpg',
+// 			[
+// 				new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder('url', 'https://open.spotify.com/track/12095GlriCNhVCbJV30vKw?si=c8713d60fa4f4a4e'),
+// 				new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder('url', 'https://open.spotify.com/track/12095GlriCNhVCbJV30vKw?si=c8713d60fa4f4a4e'),
+// 			],
+// 			'#FFFFFF',
+// 		),
+// 		new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder('電梯大樓', '70筆', 'https://i.imgur.com/VKihAYW.jpg',
+// 			[
+// 				new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder('url', 'https://open.spotify.com/track/12095GlriCNhVCbJV30vKw?si=c8713d60fa4f4a4e'),
+// 				new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder('url', 'https://open.spotify.com/track/12095GlriCNhVCbJV30vKw?si=c8713d60fa4f4a4e'),
+// 			],
+// 			'#FFFFFF',
+// 		)
+// 	],
+// 	'rectangle','cover'
+// );
 $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TemplateMessageBuilder('CCC', $Carousel);
 $bot->replyMessage($linePost->getReplyToken(), $textMessageBuilder);
 exit;
