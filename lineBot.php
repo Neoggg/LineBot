@@ -33,7 +33,7 @@ if ($messageInfo['type'] == 'text') {
 	$bot->replyMessage($linePost->getReplyToken(), $textMessageBuilder);
 }
 if ($messageInfo['type'] == 'location') {
-	$pushMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($messageInfo['latitude'] . ' ' . $messageInfo['longitude'] . '<br>' .$messageInfo['address'], $QuickReplyMessageBuilder);
+	$pushMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($messageInfo['latitude'] . ' ' . $messageInfo['longitude'] . PHP_EOL . $messageInfo['address'], $QuickReplyMessageBuilder);
 	$bot->pushMessage($linePost->getUserId(), $pushMessageBuilder);
 }
 $LineJson = new LineJson();
