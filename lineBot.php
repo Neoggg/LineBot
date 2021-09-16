@@ -23,17 +23,17 @@ $httpClient = new CurlHTTPClient($channelAccessToken);
 $bot = new LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 
 $ButtonTemplate = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\ButtonTemplateBuilder(
-	'title',
+	'titl',
 	'text',
 	__DIR__ . '/ellall.jpg',
-	[new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder( 'url', 'https://open.spotify.com/track/12095GlriCNhVCbJV30vKw?si=c8713d60fa4f4a4e')],
+	[new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder('url', 'https://open.spotify.com/track/12095GlriCNhVCbJV30vKw?si=c8713d60fa4f4a4e')],
 	'rectangle',
 	'cover',
 	'#FFFFFF'
 );
-$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('hello', $ButtonTemplate);
+$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TemplateMessageBuilder('alert', $ButtonTemplate);
 $bot->replyMessage($linePost->getReplyToken(), $textMessageBuilder);
-exit;
+// exit;
 
 $QuickReplyMessageBuilder = new QuickReplyMessageBuilder([
 	new QuickReplyButtonBuilder(new LocationTemplateActionBuilder('Location')),
