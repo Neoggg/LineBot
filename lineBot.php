@@ -23,10 +23,13 @@ $httpClient = new CurlHTTPClient($channelAccessToken);
 $bot = new LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 
 $ButtonTemplate = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\ButtonTemplateBuilder(
-	'title',
-	'text',
-	'https://i.imgur.com/y4oFWv5.jpg',
-	[new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder('url', 'https://open.spotify.com/track/12095GlriCNhVCbJV30vKw?si=c8713d60fa4f4a4e', new \LINE\LINEBot\TemplateActionBuilder\Uri\AltUriBuilder('http://example.com/pc/page/222'))],
+	'公寓',
+	'60筆60筆60筆60筆60筆60筆60筆60筆60筆60筆60筆60筆60筆60筆60筆60筆',
+	'https://i.imgur.com/VKihAYW.jpg',
+	[
+		new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder('url', 'https://open.spotify.com/track/12095GlriCNhVCbJV30vKw?si=c8713d60fa4f4a4e'),
+		new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder('url', 'https://open.spotify.com/track/12095GlriCNhVCbJV30vKw?si=c8713d60fa4f4a4e'),
+	],
 	'rectangle',
 	'cover',
 	'#FFFFFF'
