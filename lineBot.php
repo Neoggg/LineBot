@@ -25,7 +25,7 @@ $bot = new LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 $ButtonTemplate = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\ButtonTemplateBuilder(
 	'title',
 	'text',
-	'https://imgur.com/j25vnzh',
+	'https://imgur.com/VKihAYW',
 	[new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder('url', 'https://open.spotify.com/track/12095GlriCNhVCbJV30vKw?si=c8713d60fa4f4a4e', new \LINE\LINEBot\TemplateActionBuilder\Uri\AltUriBuilder('http://example.com/pc/page/222'))],
 	'rectangle',
 	'cover',
