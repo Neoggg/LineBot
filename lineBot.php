@@ -26,7 +26,7 @@ $ButtonTemplate = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\ButtonTemplat
 	'title',
 	'text',
 	__DIR__ . '/ellall.jpg',
-	[new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder('uri', 'url', 'www.google.com')],
+	[new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder( 'url', 'https://open.spotify.com/track/12095GlriCNhVCbJV30vKw?si=c8713d60fa4f4a4e')],
 	'rectangle',
 	'cover',
 	'#FFFFFF'
