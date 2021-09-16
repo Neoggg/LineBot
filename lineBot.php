@@ -22,6 +22,19 @@ $channelAccessToken = 'b31d8B9iAriRU9gT2b2LHKapaDFZzWga3SmlmHCMRWUsl5OplYXV/78fK
 $httpClient = new CurlHTTPClient($channelAccessToken);
 $bot = new LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 
+$ButtonTemplate = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\ButtonTemplateBuilder(
+	'title',
+	'text',
+	__DIR__ . '/ellall.jpg',
+	[new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder('url', 'www.google.com')],
+	'rectangle',
+	'cover',
+	'#FFFFFF'
+);
+$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('hello', $ButtonTemplate);
+$bot->replyMessage($linePost->getReplyToken(), $textMessageBuilder);
+exit;
+
 $QuickReplyMessageBuilder = new QuickReplyMessageBuilder([
 	new QuickReplyButtonBuilder(new LocationTemplateActionBuilder('Location')),
 	new QuickReplyButtonBuilder(new  \LINE\LINEBot\TemplateActionBuilder\CameraTemplateActionBuilder('Camera')),
