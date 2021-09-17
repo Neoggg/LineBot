@@ -32,7 +32,7 @@ foreach ($lineReplyMess as $key => $content) {
 	if (!empty($content['searchUrlAll'])) {
 		// $UriTemplate[] = new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder($content['searchUrlAllText'], $content['searchUrlAll']);
 		// $UriTemplate[] = new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder($content['searchUrlAllText'], 'https://i.imgur.com/VKihAYW.jpg');
-		$UriTemplate[] = new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder($content['searchUrlAllText'], 'https://i.imgur.com/adKT5rY.jpg?openExternalBrowser=1');
+		$UriTemplate[] = new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder('https://i.imgur.com/adKT5rY.jpg?openExternalBrowser=1', 'https://i.imgur.com/adKT5rY.jpg?openExternalBrowser=1');
 	}
 	$CarouselColumn[] = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder($content['typecode'], $content['text'], 'https://i.imgur.com/VKihAYW.jpg', $UriTemplate, '#FFFFFF');
 }
