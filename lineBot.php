@@ -1,7 +1,7 @@
 <?php
 require 'vendor/autoload.php';
-require_once 'forLine/LineJson.php';
-require_once 'forLine/LinePost.php';
+require_once 'models/LineJson.php';
+require_once 'models/LinePost.php';
 
 use \LINE\LINEBot;
 use LINE\LINEBot\HTTPClient\CurlHTTPClient;
@@ -14,7 +14,8 @@ $jsonMap = '{"destination":"U52d37d1d9b625754fa7308ed6af263ef","events":[{"type"
 
 $HttpRequestBody = file_get_contents('php://input');
 // file_put_contents('php://stderr', json_encode($HttpRequestBody));
-$linePost = new LinePost($HttpRequestBody);
+$linePost = new LinePost($jsonMap);
+$messageInfo = $linePost->getMessage();
 //設定Token 
 $channelSecret =  '64f2e4b2431a448b2c872f5c58a201a9';
 $channelAccessToken = 'b31d8B9iAriRU9gT2b2LHKapaDFZzWga3SmlmHCMRWUsl5OplYXV/78fKWM/qjkVGX7W/ReVne/1S+9Q9Vc2bBtZsI6td4pb6sqL8MQWCNzLQPI2dh2S5tjEBN4s6+QRkFTXjCqaNTNUZYZ6F0C2cwdB04t89/1O/w1cDnyilFU=';
@@ -31,7 +32,7 @@ foreach ($lineReplyMess as $key => $content) {
 	if (!empty($content['searchUrlAll'])) {
 		// $UriTemplate[] = new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder($content['searchUrlAllText'], $content['searchUrlAll']);
 		// $UriTemplate[] = new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder($content['searchUrlAllText'], 'https://i.imgur.com/VKihAYW.jpg');
-		$UriTemplate[] = new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder($content['searchUrlAllText'], 'https://i.imgur.com/adKT5rY.jpg', new \LINE\LINEBot\TemplateActionBuilder\Uri\AltUriBuilder('https://i.imgur.com/adKT5rY.jpg'));
+		$UriTemplate[] = new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder($content['searchUrlAllText'], 'https://i.imgur.com/adKT5rY.jpg?openExternalBrowser=1');
 	}
 	$CarouselColumn[] = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder($content['typecode'], $content['text'], 'https://i.imgur.com/VKihAYW.jpg', $UriTemplate, '#FFFFFF');
 }
