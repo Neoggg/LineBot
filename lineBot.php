@@ -35,10 +35,10 @@ if ($message['type'] == 'location') {
 	$CarouselColumn = [];
 	foreach ($lineReplyMess as $key => $content) {
 		$UriTemplate = [];
-		if (!empty($content['searchUrlLowPrice'])) {
+		if (!empty($content['searchUrlLowPriceText'])) {
 			$UriTemplate[] = new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder($content['searchUrlLowPriceText'], $content['searchUrlLowPrice'] . '&openExternalBrowser=1');
 		}
-		if (!empty($content['searchUrlAll'])) {
+		if (!empty($content['searchUrlAllText'])) {
 			// $UriTemplate[] = new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder($content['searchUrlAllText'], 'https://i.imgur.com/adKT5rY.jpg?openExternalBrowser=1');
 			$UriTemplate[] = new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder($content['searchUrlAllText'], $content['searchUrlAll'] . '&openExternalBrowser=1');
 		}
