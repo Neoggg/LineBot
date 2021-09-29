@@ -3,10 +3,10 @@
 class LinePost
 {
   private $requestBody = [];
-  private $userId;
-  private $replyToken;
-  private $eventsType;
-  private $message;
+  private $userId = '';
+  private $replyToken = '';
+  private $eventsType = '';
+  private $message = [];
 
   public function __construct($requestBody)
   {
