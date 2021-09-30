@@ -42,13 +42,16 @@ $bot = new LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 	$CarouselColumn = [];
 	foreach ($lineReplyMess as $key => $content) {
 		$UriTemplate = [];
-		if (!empty($content['searchUrlLowPriceText'])) {
-			$UriTemplate[] = new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder($content['searchUrlLowPriceText'], $content['searchUrlLowPrice'] . '&openExternalBrowser=1');
+		foreach ($content['uriRely'] as $value) {
+			$UriTemplate[] = new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder($value['searchUrlText'], $value['searchUrl'] . $this->exBrowser);
 		}
-		if (!empty($content['searchUrlAllText'])) {
-			// $UriTemplate[] = new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder($content['searchUrlAllText'], 'https://i.imgur.com/adKT5rY.jpg?openExternalBrowser=1');
-			$UriTemplate[] = new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder($content['searchUrlAllText'], $content['searchUrlAll'] . '&openExternalBrowser=1');
-		}
+		// if (!empty($content['searchUrlLowPriceText'])) {
+		// 	$UriTemplate[] = new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder($content['searchUrlLowPriceText'], $content['searchUrlLowPrice'] . '&openExternalBrowser=1');
+		// }
+		// if (!empty($content['searchUrlAllText'])) {
+		// 	// $UriTemplate[] = new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder($content['searchUrlAllText'], 'https://i.imgur.com/adKT5rY.jpg?openExternalBrowser=1');
+		// 	$UriTemplate[] = new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder($content['searchUrlAllText'], $content['searchUrlAll'] . '&openExternalBrowser=1');
+		// }
 		$CarouselColumn[] = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder($content['typecode'], $content['text'], 'https://i.imgur.com/VKihAYW.jpg', $UriTemplate, '#FFFFFF');
 	}
 	$Carousel = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder($CarouselColumn, 'rectangle', 'cover');
