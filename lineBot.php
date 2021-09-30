@@ -53,7 +53,7 @@ $bot = new LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 	}
 	$Carousel = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder($CarouselColumn, 'rectangle', 'cover');
 	$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TemplateMessageBuilder('CCC', $Carousel, $QuickReplyMessageBuilder);
-	file_put_contents('php://stderr', serialize($textMessageBuilder));
+	// file_put_contents('php://stderr', serialize($textMessageBuilder));
 	$bot->replyMessage($linePost->getReplyToken(), $textMessageBuilder);
 	exit;
 // }
