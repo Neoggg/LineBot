@@ -43,7 +43,7 @@ $bot = new LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 	foreach ($lineReplyMess as $key => $content) {
 		$UriTemplate = [];
 		foreach ($content['uriRely'] as $value) {
-			$UriTemplate[] = new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder($value['searchUrlText'], $value['searchUrl'] . $this->exBrowser);
+			$UriTemplate[] = new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder($value['searchUrlText'], $value['searchUrl'] .'&openExternalBrowser=1');
 		}
 		// if (!empty($content['searchUrlLowPriceText'])) {
 		// 	$UriTemplate[] = new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder($content['searchUrlLowPriceText'], $content['searchUrlLowPrice'] . '&openExternalBrowser=1');
