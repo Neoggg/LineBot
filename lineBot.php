@@ -51,7 +51,7 @@ foreach ($lineReplyMess as $key => $content) {
 		if (!empty($value['searchUrl'])) {
 			$UriTemplate[] = new UriTemplateActionBuilder($value['searchUrlText'], $value['searchUrl'] . $exBrowser);
 		} else {
-			$UriTemplate[] = new UriTemplateActionBuilder('test', 'https://www.rakuya.com' . $exBrowser);
+			$UriTemplate[] = new UriTemplateActionBuilder(' ', 'https://www.rakuya.com' . $exBrowser);
 		}
 	}
 	// if (!empty($content['searchUrlLowPriceText'])) {
