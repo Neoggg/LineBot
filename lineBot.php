@@ -53,8 +53,8 @@ foreach ($lineReplyMess as $key => $content) {
 			$UriTemplate[] = new UriTemplateActionBuilder($value['searchUrlText'], $value['searchUrl'] . $exBrowser);
 		} else {
 			// $UriTemplate[] = new UriTemplateActionBuilder(' ', 'https://www.rakuya.com' . $exBrowser);
-			// $UriTemplate[] = new UriTemplateActionBuilder(' ', 'test');
-			$UriTemplate[] = new MessageTemplateActionBuilder(' ', 'empty');
+			$UriTemplate[] = new UriTemplateActionBuilder(' ', 'test');
+			// $UriTemplate[] = new MessageTemplateActionBuilder(' ', 'empty');
 		}
 	}
 	// if (!empty($content['searchUrlLowPriceText'])) {
