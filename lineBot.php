@@ -45,7 +45,7 @@ foreach ($lineReplyMess as $key => $content) {
 	$UriTemplate = [];
 	foreach ($content['uriRely'] as $value) {
 		if (empty($value['searchUrl'])) {
-			$UriTemplate[] = new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder(' ', ' ' . '&openExternalBrowser=1');
+			$UriTemplate[] = new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder('test', 'www.google.com' . '&openExternalBrowser=1');
 		} else {
 			$UriTemplate[] = new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder($value['searchUrlText'], $value['searchUrl'] . '&openExternalBrowser=1');
 		}
