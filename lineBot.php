@@ -10,6 +10,7 @@ use \LINE\LINEBot\QuickReplyBuilder\QuickReplyMessageBuilder;
 use \LINE\LINEBot\QuickReplyBuilder\ButtonBuilder\QuickReplyButtonBuilder;
 use \LINE\LINEBot\TemplateActionBuilder\LocationTemplateActionBuilder;
 use \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder;
+use \LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder;
 
 // Line外開Browser
 $exBrowser = '&openExternalBrowser=1';
@@ -51,7 +52,9 @@ foreach ($lineReplyMess as $key => $content) {
 		if (!empty($value['searchUrl'])) {
 			$UriTemplate[] = new UriTemplateActionBuilder($value['searchUrlText'], $value['searchUrl'] . $exBrowser);
 		} else {
-			$UriTemplate[] = new UriTemplateActionBuilder(' ', 'https://www.rakuya.com' . $exBrowser);
+			// $UriTemplate[] = new UriTemplateActionBuilder(' ', 'https://www.rakuya.com' . $exBrowser);
+			// $UriTemplate[] = new UriTemplateActionBuilder(' ', 'test');
+			$UriTemplate[] = new MessageTemplateActionBuilder(' ', 'empty');
 		}
 	}
 	// if (!empty($content['searchUrlLowPriceText'])) {
