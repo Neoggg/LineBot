@@ -44,7 +44,11 @@ $CarouselColumn = [];
 foreach ($lineReplyMess as $key => $content) {
 	$UriTemplate = [];
 	foreach ($content['uriRely'] as $value) {
-		$UriTemplate[] = new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder($value['searchUrlText'], $value['searchUrl'] . '&openExternalBrowser=1');
+		if (empty($value['searchUrl'])) {
+			$UriTemplate[] = new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder(' ', ' ' . '&openExternalBrowser=1');
+		} else {
+			$UriTemplate[] = new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder($value['searchUrlText'], $value['searchUrl'] . '&openExternalBrowser=1');
+		}
 	}
 	// if (!empty($content['searchUrlLowPriceText'])) {
 	// 	$UriTemplate[] = new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder($content['searchUrlLowPriceText'], $content['searchUrlLowPrice'] . '&openExternalBrowser=1');
